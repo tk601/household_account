@@ -30,4 +30,4 @@ Route::delete('/money/{money}','MoneysController@destroy');
 
 //Auth　→　ログインの認証をしている部分
 Auth::routes();
-Route::get('/home', 'MoneysController@index')->name('home');
+Route::get('/home','MoneysController@index')->name('home');

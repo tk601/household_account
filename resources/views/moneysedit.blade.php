@@ -42,7 +42,6 @@
          <!-- CSRF -->
          @csrf
          <!--/ CSRF -->
-
     </form>
     </div>
 </div>
