@@ -11,7 +11,7 @@ use Auth;
 class MoneysController extends Controller {
     //ダッシュボードの表示
     public function index() {
-        $moneys = Money::orderBy('created_at', 'asc')->get();
+        $moneys = Money::orderBy('created_at', 'asc')->paginate(3);
         return view('moneys', ['moneys' => $moneys]);
     }
 
