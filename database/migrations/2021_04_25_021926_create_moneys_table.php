@@ -14,7 +14,7 @@ class CreateMoneysTable extends Migration
     public function up()
     {
         Schema::create('moneys', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('user_id'); //Add:user_id...登録したユーザーのID
             $table->string('item_name');
             $table->integer('item_amount');
             $table->datetime('date');

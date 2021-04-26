@@ -28,6 +28,6 @@ Route::post('/moneys/update','MoneysController@update');
 //削除
 Route::delete('/money/{money}','MoneysController@destroy');
 
-//Auth
+//Auth　→　ログインの認証をしている部分
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'MoneysController@index')->name('home');

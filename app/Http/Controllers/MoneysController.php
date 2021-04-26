@@ -11,15 +11,14 @@ use Auth;
 class MoneysController extends Controller {
     //ダッシュボードの表示
     public function index() {
-        $moneys = Money::orderBy('created_at', 'asc')->paginate(3);
+        $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'asc')->paginate(3);
         return view('moneys', ['moneys' => $moneys]);
     }
 
     //更新画面
-    public function edit(Money $moneys) {
-        return view('moneysedit', [
-            'money' => $moneys
-        ]);
+    public function edit($money_id) {
+        $moneys = Money::where('user_id',Auth::user()->id)->find($money_id);
+        return view('moneysedit', ['money' => $moneys]);
     }
 
     //更新
@@ -41,7 +40,7 @@ class MoneysController extends Controller {
         }
 
         //データ更新
-        $moneys = Money::find($request->id);
+        $moneys = Money::where('user_id',Auth::user()->id)->find($request->id);
         $moneys->item_name = $request->item_name;
         $moneys->item_amount = $request->item_amount;
         $moneys->date = $request->date;
@@ -68,6 +67,7 @@ class MoneysController extends Controller {
 
         //Eloquentモデル（登録処理）
         $moneys = new Money;
+        $moneys->user_id  = Auth::user()->id; //追加のコード
         $moneys->item_name = $request->item_name;
         $moneys->item_amount = $request->item_amount;
         $moneys->date = $request->date;
@@ -80,5 +80,10 @@ class MoneysController extends Controller {
     public function destroy(Money $money) {
         $money->delete();
         return redirect('/');
+    }
+
+    //コンストラクタ （このクラスが呼ばれたら最初に処理をする） ログイン承認をしないと、どこのページも開けない。
+    public function __construct() {
+        $this->middleware('auth');
     }
 }
