@@ -44,6 +44,12 @@
             </div>
         </form>
     </div>
+    <!-- フラッシュメッセージ -->
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
 
     <!-- Money: 既に登録されてるリスト -->
     <!-- 現在の支出 -->

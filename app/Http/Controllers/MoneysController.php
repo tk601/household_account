@@ -66,14 +66,14 @@ class MoneysController extends Controller {
                 ->withErrors($validator);
         }
 
-
         //Eloquentモデル（登録処理）
         $moneys = new Money;
         $moneys->item_name = $request->item_name;
         $moneys->item_amount = $request->item_amount;
         $moneys->date = $request->date;
         $moneys->save();
-        return redirect('/');
+        return redirect('/')->with('message', '登録が完了しました');
+        //with('message', '登録が完了しました')...withヘルパー関数　→　moneys.bladeに表示される
     }
 
     //削除処理
