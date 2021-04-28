@@ -22,6 +22,9 @@ Route::post('/moneys','MoneysController@store');
 //更新画面
 Route::post('/moneysedit/{moneys}','MoneysController@edit');
 
+//追加画面
+Route::get('/moneysadd','MoneysController@add');
+
 //更新処理
 Route::post('/moneys/update','MoneysController@update');
 

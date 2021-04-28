@@ -1,53 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-    <!-- Bootstrapの定形コード… -->
-    <div class="card-body">
-        <div class="card-title">
-            タイトル
-        </div>
-
-        <!-- バリデーションエラーの表示に使用-->
-        @include('common.errors')
-        <!-- バリデーションエラーの表示に使用-->
-
-        <!-- タイトル -->
-        <form action="{{ url('moneys') }}" method="POST" class="form-horizontal">
-            @csrf
-
-            <!-- タイトル -->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="money" class="col-sm-3 control-label">タイトル</label>
-                    <input type="text" name="item_name" class="form-control">
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="amount" class="col-sm-3 control-label">金額</label>
-                    <input type="text" name="item_amount" class="form-control">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="date" class="col-sm-3 control-label">日付</label>
-                    <input type="date" name="date" class="form-control">
-                </div>
-            </div>
-
-            <!-- 登録ボタン -->
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">
-                        Save
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
     <!-- フラッシュメッセージ -->
-    @if (session('message'))
+    @if (session('store_message'))
         <div class="alert alert-success">
-            {{ session('message') }}
+            {{ session('store_message') }}
+        </div>
+    @endif
+    @if (session('update_message'))
+        <div class="alert alert-success">
+            {{ session('update_message') }}
         </div>
     @endif
 
@@ -60,7 +22,10 @@
                     <!-- テーブルヘッダ -->
                     <thead>
                         <th>支出一覧</th>
-                        <th>&nbsp;</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>sa</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -68,9 +33,14 @@
                             <tr>
                                 <!-- タイトル -->
                                 <td class="table-text">
+                                    <div>{{ $money->date }}</div>
+                                </td>
+                                <td>
                                     <div>{{ $money->item_name }}</div>
                                 </td>
-
+                                <td>
+                                    <div>{{ $money->item_amount }}</div>
+                                </td>
                                 <!-- 本: 更新ボタン -->
                                 <td>
                                     <form action="{{ url('moneysedit/'.$money->id) }}" method="POST">
@@ -86,7 +56,6 @@
                                     <form action="{{ url('money/'.$money->id) }}" method="POST">
                                         @csrf               <!-- CSRFからの保護 -->
                                         @method('DELETE')   <!-- 擬似フォームメソッド -->
-
                                         <button type="submit" class="btn btn-danger">
                                             削除
                                         </button>
@@ -102,6 +71,9 @@
             <div class="col-md-4 offset-md-4">
                 {{ $moneys->links()}}
             </div>
+        </div>
+        <div class="">
+            <a class="btn btn-success" href="{{ url('moneysadd') }}">追加</a>
         </div>
     @endif
 @endsection

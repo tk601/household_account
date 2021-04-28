@@ -9,7 +9,7 @@ use Validator;
 use Auth;
 
 class MoneysController extends Controller {
-    //ダッシュボードの表示
+    //一覧の表示
     public function index() {
         $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'asc')->paginate(3);
         return view('moneys', ['moneys' => $moneys]);
@@ -21,7 +21,7 @@ class MoneysController extends Controller {
         return view('moneysedit', ['money' => $moneys]);
     }
 
-    //更新
+    //更新　更新ボタン
     public function update(Request $request) {
         //バリデーション
         $validator = Validator::make($request->all(), [
@@ -45,10 +45,15 @@ class MoneysController extends Controller {
         $moneys->item_amount = $request->item_amount;
         $moneys->date = $request->date;
         $moneys->save();
-        return redirect('/');
+        return redirect('/')->with('update_message', '更新が完了しました');
     }
 
-    //登録
+    //追加画面の表示
+    public function add() {
+        return view('moneysadd');
+    }
+
+    //登録　SAVEボタン
     public function store(Request $request) {
         //dd($request);どんな情報が送られているか確認できる「request,paraments」
         //バリデーション
@@ -72,7 +77,7 @@ class MoneysController extends Controller {
         $moneys->item_amount = $request->item_amount;
         $moneys->date = $request->date;
         $moneys->save();
-        return redirect('/')->with('message', '登録が完了しました');
+        return redirect('/')->with('store_message', '登録が完了しました');
         //with('message', '登録が完了しました')...withヘルパー関数　→　moneys.bladeに表示される
     }
 
