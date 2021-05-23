@@ -12,7 +12,7 @@
 </div>
 @if (count($date) > 0)
     <div class="">
-        {{ $t_sum }}
+        {{ number_format($t_sum) }}
     </div>
 @endif
 <div class="well well-sm">
@@ -35,7 +35,7 @@
                                     <div>{{ $date->item_name }}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $date->item_amount }}円</div>
+                                    <div>{{ number_format($date->item_amount) }}円</div>
                                 </td>
                             </tr>
                         @endforeach

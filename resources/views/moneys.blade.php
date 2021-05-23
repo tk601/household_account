@@ -18,7 +18,7 @@
     <!-- Money: 既に登録されてるリスト -->
     <!-- 現在の支出 -->
     <div class="content">
-        <h2>今までの合計金額<span>{{ $sum }}円</span></h2>
+        <h2>今までの合計金額<span>{{ number_format($sum) }}円</span></h2>
     </div>
 
     <div class="">
@@ -40,7 +40,7 @@
                                     <div>{{ $money->item_name }}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $money->item_amount }}円</div>
+                                    <div>{{ number_format($money->item_amount) }}円</div>
                                 </td>
                                 <!-- 本: 更新ボタン -->
                                 <td>
