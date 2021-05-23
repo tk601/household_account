@@ -10,7 +10,7 @@ class MoneyTableSeeder extends Seeder {
      */
     public function run() {
         $faker = Faker\Factory::create('ja_JP');
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 30; $i++) {
             App\Money::create([
                 'item_name' => $faker->word(), //文字列
                 'user_id' => $faker->numberBetween(1, 2), //1〜2

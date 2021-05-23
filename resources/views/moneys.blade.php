@@ -12,26 +12,27 @@
             {{ session('update_message') }}
         </div>
     @endif
+    @include('common.errors')
+
 
     <!-- Money: 既に登録されてるリスト -->
     <!-- 現在の支出 -->
+    <div class="content">
+        <h2>今までの合計金額<span>{{ $sum }}円</span></h2>
+    </div>
+
+    <div class="">
+        <a class="btn btn-success" href="{{ url('moneyssearch') }}">日付で検索する</a></th>
+        <th><a class="btn btn-success" href="{{ url('moneysadd') }}">追加する</a></th>
+    </div>
     @if (count($moneys) > 0)
         <div class="card-body">
             <div class="card-body">
                 <table class="table table-striped task-table">
-                    <!-- テーブルヘッダ -->
-                    <thead>
-                        <th>支出一覧</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>sa</th>
-                    </thead>
-                    <!-- テーブル本体 -->
                     <tbody>
                         @foreach ($moneys as $money)
                             <tr>
-                                <!-- タイトル -->
+                                <!-- タイトル  -->
                                 <td class="table-text">
                                     <div>{{ $money->date }}</div>
                                 </td>
@@ -39,7 +40,7 @@
                                     <div>{{ $money->item_name }}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $money->item_amount }}</div>
+                                    <div>{{ $money->item_amount }}円</div>
                                 </td>
                                 <!-- 本: 更新ボタン -->
                                 <td>
@@ -71,9 +72,6 @@
             <div class="col-md-4 offset-md-4">
                 {{ $moneys->links()}}
             </div>
-        </div>
-        <div class="">
-            <a class="btn btn-success" href="{{ url('moneysadd') }}">追加</a>
         </div>
     @endif
 @endsection

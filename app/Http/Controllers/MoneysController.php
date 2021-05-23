@@ -11,8 +11,9 @@ use Auth;
 class MoneysController extends Controller {
     //一覧の表示
     public function index() {
-        $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'asc')->paginate(3);
-        return view('moneys', ['moneys' => $moneys]);
+        $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
+        $sum = Money::select('item_amount')->sum('item_amount');
+        return view('moneys' , ['moneys' => $moneys ,'sum' => $sum ]);
     }
 
     //更新画面
@@ -20,6 +21,17 @@ class MoneysController extends Controller {
         $moneys = Money::where('user_id',Auth::user()->id)->find($money_id);
         return view('moneysedit', ['money' => $moneys]);
     }
+
+    //年月日で計算画面の表示
+    public function search(Request $request) {
+        $from = $request->input('from');
+        $until = $request->input('until');
+        $date = Money::where('user_id',Auth::user()->id)->orderBy('date', 'desc')->whereBetween('date',[$from,$until])->paginate(10);
+        $t_sum = $date->sum('item_amount');
+        return view('moneyssearch', ['date' => $date , 't_sum' => $t_sum]);
+
+    }
+
 
     //更新　更新ボタン
     public function update(Request $request) {
@@ -29,7 +41,7 @@ class MoneysController extends Controller {
             'id' => 'required',
             'item_name' => 'required|min:3|max:255',
             'item_amount' => 'required|max:6',
-            'date' => 'required',
+            'date' => 'required'
         ]);
 
         //バリデーション:エラー
@@ -58,7 +70,7 @@ class MoneysController extends Controller {
         //dd($request);どんな情報が送られているか確認できる「request,paraments」
         //バリデーション
         $validator = Validator::make($request->all(), [
-            'item_name' => 'required|min:3|max:255',
+            'item_name' => 'required|min:1|max:255',
             'item_amount' => 'required|max:6',
             'date' => 'required',
         ]);

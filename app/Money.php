@@ -8,3 +8,4 @@ class Money extends Model
 {
     protected $table = 'moneys';
 }
+//protected $dates = ['date'];

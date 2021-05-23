@@ -18,7 +18,7 @@ class CreateMoneysTable extends Migration
             $table->bigInteger('user_id'); //Add:user_id...登録したユーザーのID
             $table->string('item_name');
             $table->integer('item_amount');
-            $table->datetime('date');
+            $table->date('date');
             $table->timestamps();
         });
     }
