@@ -1,16 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="">
-    <form action="{{ url('moneyssearch') }}" method="GET">
-        <input type="date" name="from" placeholder="from_date">
-            <span class="mx-3 text-grey">~</span>
-        <input type="date" name="until" placeholder="until_date">
-        <button type="submit">検索</button>
-    </form>
-</form>
-</div>
-@if (count($date) > 0)
+
+@if (count($date) >0)
     <div class="">
         {{ number_format($t_sum) }}
     </div>
@@ -20,7 +12,7 @@
         リスト一覧に戻る
     </a>
 </div>
-    @if (count($date) > 0)
+    @if (count($date) >0)
         <div class="card-body">
             <div class="card-body">
                 <table class="table table-striped task-table">

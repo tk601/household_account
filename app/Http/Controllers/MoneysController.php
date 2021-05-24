@@ -22,14 +22,34 @@ class MoneysController extends Controller {
         return view('moneysedit', ['money' => $moneys]);
     }
 
-    //年月日で計算画面の表示
+    //検索画面の表示
+    public function seek() {
+        return view('moneysseek');
+    }
+
+    //年月日で検索画面の表示
     public function search(Request $request) {
+        //バリデーション
+        $validator = Validator::make($request->all(), [
+            'from' => 'required',
+            'until'=> 'required'
+        ]);
+
+        //バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect('/')
+                ->withInput()
+                ->withErrors($validator);
+        }
         $from = $request->input('from');
         $until = $request->input('until');
-        $date = Money::where('user_id',Auth::user()->id)->orderBy('date', 'desc')->whereBetween('date',[$from,$until])->paginate(10);
+        $date = Money::where('user_id',Auth::user()->id)
+            ->orderBy('date', 'desc')
+            ->whereBetween('date',[$from,$until])
+            ->orwhereBetween('date',[$until,$from])
+            ->paginate(10);
         $t_sum = $date->sum('item_amount');
-        return view('moneyssearch', ['date' => $date , 't_sum' => $t_sum]);
-
+        return view('moneysseek', ['date' => $date , 't_sum' => $t_sum]);
     }
 
 

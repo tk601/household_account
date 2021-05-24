@@ -22,7 +22,15 @@
     </div>
 
     <div class="">
-        <a class="btn btn-success" href="{{ url('moneyssearch') }}">日付で検索する</a></th>
+        <div class="">
+            <form action="{{ url('moneyssearch') }}" method="GET">
+                <input type="date" name="from">
+                    <span class="mx-3 text-grey">~</span>
+                <input type="date" name="until">
+                <button type="submit">検索</button>
+            </form>
+        </div>
+
         <th><a class="btn btn-success" href="{{ url('moneysadd') }}">追加する</a></th>
     </div>
     @if (count($moneys) > 0)

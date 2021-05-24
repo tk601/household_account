@@ -22,8 +22,11 @@ Route::post('/moneys','MoneysController@store');
 //更新画面
 Route::post('/moneysedit/{moneys}','MoneysController@edit');
 
-//検索画面
+//検索処理
 Route::get('/moneyssearch','MoneysController@search');
+
+//検索画面
+Route::get('/moneysseek','MoneysController@seek');
 
 //追加画面
 Route::get('/moneysadd','MoneysController@add');
