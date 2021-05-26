@@ -12,7 +12,7 @@ class MoneysController extends Controller {
     //一覧の表示
     public function index() {
         $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
-        $sum = Money::select('item_amount')->sum('item_amount');
+        $sum = $moneys->sum('item_amount');
         return view('moneys' , ['moneys' => $moneys ,'sum' => $sum ]);
     }
 
@@ -34,7 +34,6 @@ class MoneysController extends Controller {
             'from' => 'required',
             'until'=> 'required'
         ]);
-
         //バリデーション:エラー
         if ($validator->fails()) {
             return redirect('/')

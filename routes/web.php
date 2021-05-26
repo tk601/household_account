@@ -37,6 +37,9 @@ Route::post('/moneys/update','MoneysController@update');
 //削除
 Route::delete('/money/{money}','MoneysController@destroy');
 
+//ゲスト
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
 //Auth　→　ログインの認証をしている部分
 Auth::routes();
 Route::get('/home','MoneysController@index')->name('home');

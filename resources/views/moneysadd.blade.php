@@ -3,6 +3,7 @@
 
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
+        <h3></h3>
         <!-- バリデーションエラーの表示に使用-->
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
@@ -36,9 +37,12 @@
                     <button type="submit" class="btn btn-primary">
                         Save
                     </button>
+                    <a class="btn btn-link pull-right" href="{{ url('/') }}">
+                        Back
+                    </a>
                 </div>
             </div>
         </form>
     </div>
-    
+
 @endsection

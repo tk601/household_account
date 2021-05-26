@@ -152,10 +152,8 @@ return [
     */
 
     'attributes' => [
-        'item_name'   => '書籍名',
-        'item_number' => '冊数',
+        'item_name'   => 'タイトル',
         'item_amount' => '金額',
-        'item_img'    => '画像',
         'published'   => '日付',
     ],
 

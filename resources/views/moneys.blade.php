@@ -17,22 +17,24 @@
 
     <!-- Money: 既に登録されてるリスト -->
     <!-- 現在の支出 -->
-    <div class="content">
-        <h2>今までの合計金額<span>{{ number_format($sum) }}円</span></h2>
-    </div>
 
-    <div class="">
-        <div class="">
+    <h2>今までの合計金額<span>{{ number_format($sum) }}円</span></h2>
+    <div class="row container">
+        <div class="col-md-12">
             <form action="{{ url('moneyssearch') }}" method="GET">
-                <input type="date" name="from">
-                    <span class="mx-3 text-grey">~</span>
-                <input type="date" name="until">
-                <button type="submit">検索</button>
+                <div class="form-group col-md-6">
+                    <input type="date" name="from" class="form-control">
+                </div>
+                <span class="mx-3 text-grey">~</span>
+                <div class="form-group col-md-6">
+                    <input type="date" name="until" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary col-md-6">検索</button>
             </form>
         </div>
-
-        <th><a class="btn btn-success" href="{{ url('moneysadd') }}">追加する</a></th>
     </div>
+    <a class="btn btn-success" href="{{ url('moneysadd') }}">追加する</a>
+
     @if (count($moneys) > 0)
         <div class="card-body">
             <div class="card-body">
