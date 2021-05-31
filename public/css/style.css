@@ -1,1 +1,130 @@
+/*
+    color: rgba(238, 175, 78, 1);
+    color: #eeaf4e;
+*/
 
+/*全体*/
+body {
+    background-color: #00405c;
+}
+
+/*最初の画面のcss*/
+.start {
+	background: #00405c;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 9000;
+    text-align: center;
+}
+.start_01 {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 9999;
+}
+.start_01 img {
+    width: 70%;
+    margin-bottom: 10%;
+}
+.start_01 p {
+    color: white;
+    font-size: 180%;
+}
+
+/*「login.blade.php」のcss*/
+.logo_01 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.logo_01 img {
+    width: 26%;
+}
+
+.login_01 {
+    background: #00405c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 8000;
+}
+.login_register {
+    position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.login_text {
+    font-size: 18px;
+    color: white;
+    background-color: #eeaf4e;
+}
+.login_pass {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+.remember_01 {
+    color: #eeaf4e;
+}
+.btn_css {
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #eeaf4e;
+}
+.btn_css:hover {
+    opacity: 0.8;
+}
+.btn_css a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/*「email.blade.php」のcss*/
+.font_css {
+    color: #eeaf4e;
+}
+.font_css p {
+    font-size: 18px;
+}
+.back_btn a {
+    font-size: 18px;
+}
+
+
+
+
+/*「app.blade.php」のcss*/
+.nav-simple {
+    font-size: 180%;
+    display: flex;
+}
+.nav-simple img {
+    width: 15%;
+}
+.nav-simple p {
+    text-decoration: none;
+    color: #eeaf4e;
+    position: absolute;
+    transform: translate(25% ,20%);
+}
+.nav_icon {
+    margin-top: 3%;
+}
+.nav_text {
+    margin-top: 4%;
+}
+
+
+/*「moneys.blade.php」のcss*/

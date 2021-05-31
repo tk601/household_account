@@ -37347,6 +37347,32 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 /***/ }),
 
+/***/ "./resources/js/assets/jquery.js":
+/*!***************************************!*\
+  !*** ./resources/js/assets/jquery.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//jqueryを使う
+// test_jquery.js
+$(function () {
+  $('#btn').on('click', function () {
+    alert("Hello jQuery!!");
+  });
+});
+$(function () {
+  setTimeout(function () {
+    $('.start_01').fadeIn(1600);
+  }, 500); //0.5秒後にロゴをフェードイン!
+
+  setTimeout(function () {
+    $('.start').fadeOut(500);
+  }, 2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+});
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -37404,13 +37430,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/assets/jquery.js ./resources/sass/app.scss ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\household_account\cms\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\household_account\cms\resources\js\assets\jquery.js */"./resources/js/assets/jquery.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\household_account\cms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
