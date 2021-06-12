@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
     @if(count($moneys) == 0)
-        <div>検索されたリストはありません。</div>
+        <div class="seek">
+            <p>検索された日にちにリストは作成されていません。</p>
+        </div>
     @endif
     @if (count($moneys) > 0)
         <div class="seek">
