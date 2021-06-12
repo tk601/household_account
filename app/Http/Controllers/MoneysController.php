@@ -12,7 +12,7 @@ class MoneysController extends Controller {
     //一覧の表示
     public function index() {
         $moneys = Money::where('user_id',Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
-        $sum = $moneys->sum('item_amount');
+        $sum = Money::where('user_id',Auth::user()->id)->sum('item_amount');
         return view('moneys' , ['moneys' => $moneys ,'sum' => $sum ]);
     }
 
@@ -42,13 +42,17 @@ class MoneysController extends Controller {
         }
         $from = $request->input('from');
         $until = $request->input('until');
-        $date = Money::where('user_id',Auth::user()->id)
+        $moneys = Money::where('user_id',Auth::user()->id)
             ->orderBy('date', 'desc')
             ->whereBetween('date',[$from,$until])
             ->orwhereBetween('date',[$until,$from])
             ->paginate(10);
-        $t_sum = $date->sum('item_amount');
-        return view('moneysseek', ['date' => $date , 't_sum' => $t_sum]);
+        $t_sum = Money::where('user_id',Auth::user()->id)
+            ->orderBy('date', 'desc')
+            ->whereBetween('date',[$from,$until])
+            ->orwhereBetween('date',[$until,$from])
+            ->sum('item_amount');
+        return view('moneysseek', ['moneys' => $moneys , 't_sum' => $t_sum , 'from' => $from , 'until' => $until]);
     }
 
 
