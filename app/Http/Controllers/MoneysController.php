@@ -62,7 +62,7 @@ class MoneysController extends Controller {
         $validator = Validator::make($request->all(), [
             //更新処理には「id」がいる
             'id' => 'required',
-            'item_name' => 'required|min:3|max:255',
+            'item_name' => 'required|min:1|max:255',
             'item_amount' => 'required|max:6',
             'date' => 'required'
         ]);

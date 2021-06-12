@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="date" class="font_css">日付</label>
-                <input type="date" name="date" class="form-control-lg col-md-12" value="{{$money->date}}">
+                <input type="date" name="date" class="form-control-lg col-md-12" value="{{$money->date->format('Y-m-d')}}">
             </div>
             <div class="well well-sm text-center">
                 <button type="submit" class="btn btn_css text-white">更新する</button>

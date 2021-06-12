@@ -39,9 +39,6 @@
             </div>
         </form>
     </div>
-
-
-
     <div class="card-body mb-5">
         <div class="list_name">
             <p>全てのリスト一覧</p>
