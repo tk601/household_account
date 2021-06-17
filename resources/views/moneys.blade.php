@@ -23,19 +23,19 @@
     <!-- Money: 既に登録されてるリスト -->
     <!-- 現在の支出 -->
     <div class="container">
-        <form class="row text-center justify-content-center" action="{{ url('moneyssearch') }}" method="GET">
+        <form class="form-horizontal row text-center justify-content-center" action="{{ url('moneyssearch') }}" method="GET">
             @csrf
             <div class="col-md-6 search_css">
                 <div class="col-md-12">
                     <p>日にちを指定してリストを検索する</p>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12 text-center">
                     <input type="date" name="from" class="form-control" placeholder="年/月/日">
                 </div>
                 <div class="col-md-12 bottom_img">
                     <img src="{{ asset('h_img/bottom.png') }}">
                 </div>
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12 text-center">
                     <input type="date" name="until" class="form-control" placeholder="年/月/日">
                 </div>
                 <div class="col-md-12">
