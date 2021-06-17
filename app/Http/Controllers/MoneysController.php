@@ -94,7 +94,7 @@ class MoneysController extends Controller {
         //バリデーション
         $validator = Validator::make($request->all(), [
             'item_name' => 'required|min:1|max:255',
-            'item_amount' => 'required|max:6',
+            'item_amount' => 'required|numeric|min:0',
             'date' => 'required',
         ]);
 
