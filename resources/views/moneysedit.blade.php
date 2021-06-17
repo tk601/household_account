@@ -11,17 +11,17 @@
 <div class="container">
     <form action="{{ url('moneys/update') }}" method="POST" class="form-horizontal row justify-content-center">
         <div class="col-md-6">
-            <div class="form-group">
-               <label for="item_name" class="font_css">タイトル</label>
-               <input type="text" name="item_name" class="form-control-lg col-md-12" value="{{$money->item_name}}">
+            <div class="form-group col-md-12">
+               <label for="item_name" class="col-md-12 font_css">タイトル</label>
+               <input type="text" name="item_name" class="col-md-12 col-md-12 form-control-lg" value="{{$money->item_name}}">
             </div>
-            <div class="form-group">
-               <label for="item_amount" class="font_css">金額</label>
-               <input type="text" name="item_amount" class="form-control-lg col-md-12" value="{{$money->item_amount}}">
+            <div class="form-group col-md-12">
+               <label for="item_amount" class="col-md-12 font_css">金額</label>
+               <input type="text" name="item_amount" class="col-md-12 form-control-lg" value="{{$money->item_amount}}">
             </div>
-            <div class="form-group">
-                <label for="date" class="font_css">日付</label>
-                <input type="date" name="date" class="form-control-lg col-md-12" value="{{$money->date->format('Y-m-d')}}">
+            <div class="form-group col-md-12">
+                <label for="date" class="col-md-12 font_css">日付</label>
+                <input type="date" name="date" class="col-md-12 form-control-lg" value="{{$money->date->format('Y-m-d')}}">
             </div>
             <div class="well well-sm text-center">
                 <button type="submit" class="btn btn_css text-white">更新する</button>

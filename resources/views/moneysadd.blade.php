@@ -15,14 +15,14 @@
             <form action="{{ url('moneys') }}" method="POST" class="form-horizontal row justify-content-center">
                 @csrf
                 <div class="col-md-6 text-center">
-                    <div class="form-group">
-                        <input type="text" name="item_name" class="form-control-lg col-md-12" placeholder="タイトル">
+                    <div class="form-group col-md-12">
+                        <input type="text" name="item_name" class="col-md-12 form-control-lg" placeholder="タイトル">
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="item_amount" class="form-control-lg col-md-12" placeholder="金額">
+                    <div class="form-group col-md-12">
+                        <input type="text" name="item_amount" class="col-md-12 form-control-lg" placeholder="金額">
                     </div>
-                    <div class="form-group">
-                        <input type="date" name="date" class="form-control-lg col-md-12">
+                    <div class="form-group col-md-12">
+                        <input type="date" name="until" class="col-md-12 form-control-lg" placeholder="年/月/日">
                     </div>
                     <button type="submit" class="btn btn_css text-white">
                         登録する

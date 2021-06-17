@@ -30,13 +30,13 @@
                     <p>日にちを指定してリストを検索する</p>
                 </div>
                 <div class="form-group col-md-12">
-                    <input type="date" name="from" class="form-control">
+                    <input type="date" name="from" class="form-control" placeholder="年/月/日">
                 </div>
                 <div class="col-md-12 bottom_img">
                     <img src="{{ asset('h_img/bottom.png') }}">
                 </div>
                 <div class="form-group col-md-12">
-                    <input type="date" name="until" class="form-control">
+                    <input type="date" name="until" class="form-control" placeholder="年/月/日">
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn_css text-white">この範囲で検索する</button>
