@@ -154,7 +154,7 @@ return [
     'attributes' => [
         'item_name'   => 'タイトル',
         'item_amount' => '金額',
-        'published'   => '日付',
+        'date'   => '日付',
     ],
 
 ];
