@@ -63,7 +63,7 @@ class MoneysController extends Controller {
             //更新処理には「id」がいる
             'id' => 'required',
             'item_name' => 'required|min:1|max:255',
-            'item_amount' => 'required|max:6',
+            'item_amount' => 'required|numeric|min:0',
             'date' => 'required'
         ]);
 
@@ -119,7 +119,7 @@ class MoneysController extends Controller {
     //削除処理
     public function destroy(Money $money) {
         $money->delete();
-        return redirect('/');
+        return redirect('/')->with('destroy_message', '削除が完了しました');
     }
 
     //コンストラクタ （このクラスが呼ばれたら最初に処理をする） ログイン承認をしないと、どこのページも開けない。

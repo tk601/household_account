@@ -12,6 +12,11 @@
             {{ session('update_message') }}
         </div>
     @endif
+    @if (session('destroy_message'))
+        <div class="alert alert-success">
+            {{ session('destroy_message') }}
+        </div>
+    @endif
     @include('common.errors')
 
 
