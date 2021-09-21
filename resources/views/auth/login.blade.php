@@ -13,10 +13,7 @@
             <img src="{{ asset('h_img/top.png') }}">
         </div>
         <div class="text-center font_css">
-            <p>
-                ログインするにはメールアドレス、<br>
-                パスワードを入力してください。
-            </p>
+            <p>シンプル家計簿へようこそ！<br>ログインするにはメールアドレス、<br>パスワードを入力してください。<br>また、ゲストログインからお試しで使用できます。</p>
         </div>
         <div class="row justify-content-center">
             <div class="col-xs-12 col-md-8">
